@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝轮播图</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+			display: inline-block;
+		}
+		.wrap{
+			width: 400px;
+			height: 165px;
+			overflow: hidden;
+			margin: 200px auto;
+			position: relative;
+		}
+		.wrap .list{
+			width: 2500px;
+			position: absolute;
+			left: 0;
+		}
+		.wrap .list li{
+			float: left;
+		}
+		.wrap .list li img{
+			width: 400px;
+			height: 165px;
+		}
+		.prev,.next{
+			position: absolute;
+			width: 50px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			background: #333;
+			font-size: 35px;
+			color:#fff;
+			font-weight: bold;
+			left: 0;
+			top:53px;
+			cursor: pointer;
+			opacity: 0.3;
+			filter:alpha(opacity=30);
+		}
+		.next{
+			left: 350px;
+		}
+		.prev:hover,
+		.next:hover{
+			opacity:0.8;
+			filter:alpha(opacity=80); 
+		}
+		.dot{
+			width: 400px;
+			height: 15px;
+			position: absolute;
+			bottom: 8px;
+			left: : 150px;	
+			font-size: 0;		
+		}
+		
+		.dot li{
+			width: 15px;
+			height: 15px;
+			border-radius: 8px;
+			background: #FC781F;			
+			margin-right: 5px;
+			cursor:pointer;
+		}
+		.dot li:hover{
+			background-color: #f1f1f1
+		}
+		.dot .active{
+			background-color: #f1f1f1;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/carousel.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="list">
+			<li><img src="img/1.jpg"></li>
+			<li><img src="img/2.jpg"></li>
+			<li><img src="img/3.jpg"></li>
+			<li><img src="img/4.jpg"></li>
+			<li><img src="img/5.jpg"></li>
+		</ul>
+		<div class="prev">&lt;</div>
+		<div class="next">&gt;</div>
+		<ul class="dot">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+	
+</body>
+</html>
