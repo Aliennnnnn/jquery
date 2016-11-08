@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>复选框应用</title>
-	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
 	<style type="text/css">
 
 	</style>
@@ -22,7 +22,7 @@
     	$(function(){
     		$('#checkedAll').click(function(){
     			$('[name=items]:checkbox').attr('checked',this.checked);
-    		})
+    		});
     		
     		$('#checkedRev').click(function(){
     			$('[name=items]:checkbox').each(function(){
@@ -36,6 +36,17 @@
     					str += $(this).val()+'\r\n';   				
     			})
     			alert(str);
+    		})
+
+    		$('[name=items]:checkbox').click(function(){
+    			var flag = true;
+    			$('[name=items]:checkbox').each(function(){
+    				if(!this.checked){
+    					flag = false;
+    				}
+    			});
+    			$('#checkedAll').attr('checked',flag);
+    			//alert(flag)
     		})
     	})
     </script>
