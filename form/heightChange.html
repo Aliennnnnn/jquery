@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多行文本框高度变化</title>
+	<style type="text/css">
+		body{
+			font-family: 微软雅黑;
+		}
+		span{
+			display: inline-block;
+			width: 50px;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 5px;
+			text-align: center;
+			background-color: #999;			
+		}
+	</style>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js" ></script>
+</head>
+<body>
+	<form>
+		<div class="msg">
+			<div class="msg_caption">
+				<span class="bigger">放大</span>
+				<span class="smaller">缩小</span>
+			</div>
+			<textarea id="comment" rows="8" cols="30">
+				多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变
+			</textarea>
+		</div>
+	</form>
+
+	<script type="text/javascript">
+		$(function(){
+			var $comment = $('#comment');
+			$('.bigger').click(function(){
+				if(!$comment.is(':animated') && $comment.height()<200){
+					$comment.animate({
+						height:$comment.height()+50
+					});
+				}
+			})
+			$('.smaller').click(function(){
+				if(!$comment.is(':animated') && $comment.height()>100){
+					$comment.animate({
+						height:$comment.height()-50
+					});
+				}
+			})
+		})
+	</script>
+</body>
+</html>
