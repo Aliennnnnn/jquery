@@ -5,50 +5,78 @@
 	<title>表格隔行变色</title>
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
 	<style type="text/css">
-		
+		body{
+			font-family: 微软雅黑;
+		}
+		td{
+			text-align: center;
+			border: none;
+		}
+		th{
+			border-left: none;
+			border-right: none;
+			border-top: none;
+		}
+		input{
+			float: left;
+		}
+		tbody .odd{
+			background-color: #f1f1f1;
+		}
+		tbody .selected{
+			background-color: #999;
+			color: #fff;
+		}
 	</style>
 </head>
 <body>
-	<table border="1" cellspacing="0" cellpadding="5">
+	<table border="1" cellspacing="0" cellpadding="15" width="600">
 		<thead><th>姓名</th><th>性别</th><th>暂住地</th></thead>
-		<tr>
-			<td>张大锤</td>
-			<td>男</td>
-			<td>泰坦星</td>
-		</tr>
-		<tr>
-			<td>李小二</td>
-			<td>男</td>
-			<td>致远星</td>
-		</tr>
-		<tr>
-			<td>王亚东</td>
-			<td>男</td>
-			<td>西伯利亚</td>
-		</tr>
-		<tr>
-			<td>陶小桃</td>
-			<td>女</td>
-			<td>织女星</td>
-		</tr>
-		<tr>
-			<td>赵匡胤</td>
-			<td>男</td>
-			<td>飞毛腿星</td>
-		</tr>
-		<tr>
-			<td>Trump</td>
-			<td>男</td>
-			<td>美帝</td>
-		</tr>
+		<tbody>
+			<tr>				
+				<td><input type="radio" name="choose">张大锤</td>
+				<td>男</td>
+				<td>泰坦星</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="choose">李小二</td>
+				<td>男</td>
+				<td>致远星</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="choose">王亚东</td>
+				<td>男</td>
+				<td>西伯利亚</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="choose">陶小桃</td>
+				<td>女</td>
+				<td>织女星</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="choose">赵匡胤</td>
+				<td>男</td>
+				<td>飞毛腿星</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="choose">Trump</td>
+				<td>男</td>
+				<td>美帝</td>
+			</tr>
+		</tbody>
 	</table>
 
 	<script type="text/javascript">
 		$(function(){
-			$('table tr:odd').css({
-				'background':'#f1f1f1'
+			//设置表格隔行变色
+			$('table tr:odd').addClass('odd')
+
+			//单选框控制表格行高亮
+			$('tbody>tr').click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected')
+					.end().find(':radio').attr('checked',true);
 			})
-		})
+		});
 	</script>
 </body>
 </html>
