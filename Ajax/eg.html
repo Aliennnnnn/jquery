@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			font-size: 15px;
+			font-family: 微软雅黑;
+		}
+		.comment{
+			width: 100px;
+			margin-bottom: 30px;
+			text-align: center;
+			background-color: #999;
+		}
+	</style>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+</head>
+<body>
+	<button id="send">Ajax获取</button>
+	<div class="comment">已有评论：</div>
+	<div id="resText"></div>
+
+	<script type="text/javascript">
+		//load(url [.data] .callback)
+		$(function(){
+			$('#send').click(function(){
+				$('#resText').load('test.html');
+			})//主页面相应的样式会添加到新加载的内容上
+
+			$('#send').click(function(){
+				$('#resText').load('test.html .para');
+			})//.load(url selctor)筛选载入的页面内容
+
+			$('#send').load('test.php',function(){
+				alert('无参数传递时采用GET方式');
+			})
+			$('#send').load('test.php',{name: "rain",age: "22"},function(){
+				alert('有参数传递时自动转换为POST方式');
+			})//在load()方法中，无论Ajax请求是否成功,回调函数都会执行
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.get()方法和$.post()方法</title>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js" ></script>
+</head>
+<body>
+	<form id="form1" action="#">
+		<p>评论：</p>
+		<p>姓名：<input type="text" name="username" id="username"></p>
+		<p>内容：<textarea name="content" id="content" cols="20" rows="2"></textarea></p>		
+		<p><input type="button" id="send" value="提交" ></p>
+	</form>
+	<div class="comment">已有评论：</div>
+	<div id="resText"></div>
+
+	<script type="text/javascript">
+		$(function(){
+			$('#send').click(function(){
+				$.get('test.php',{			//$.post()
+					username:$('#username').val(),
+					content:$('#content').val()
+				},function(data,textStatus){
+					$('#resText').html(data);//阿西吧，我不会PHP，将就着看= =
+				})
+			})
+
+			/*
+			$.get()和$.post()的结构相同,但仍有以下不同点
+			1.GET对传输数据的大小有限制，通常不大于2KB，而POST方法理论上是不限制
+			  传输数据大小的。
+			2.GET传输的数据会被浏览器缓存起来，别人可以从浏览器的浏览历史获取这些
+			  数据，所以某些情况下GET会带来安全性问题，而POST方法就没有这个问题。
+			3.待续.....
+			 */
+		});
+	</script>
+</body>
+</html>
